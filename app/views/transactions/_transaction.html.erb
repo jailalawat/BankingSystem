@@ -1,0 +1,7 @@
+<tr>
+  <td><%= transaction.id %></td>
+  <td><%= transaction.amount %></td>
+  <td><%= transaction.transaction_type%></td>
+  <td><%= local_time(transaction.created_at) %></td>
+  <td><%= link_to 'Show', transaction %></td>
+</tr>

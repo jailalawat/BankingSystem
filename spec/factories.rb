@@ -1,4 +1,8 @@
 FactoryBot.define do
+  factory :transaction do
+    account nil
+    amount 1.5
+  end
   factory :account do
     user nil
     bank nil

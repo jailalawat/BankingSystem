@@ -13,6 +13,15 @@
 //= require jquery
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require twitter/bootstrap
+//= require gritter
+//= require local-time
+//= require bootstrap-datepicker
 //= require_tree .
+
+
+$(document).ready(function(){
+  $('.datepicker').datepicker({
+	    format: 'yyyy-mm-dd'
+	});
+});

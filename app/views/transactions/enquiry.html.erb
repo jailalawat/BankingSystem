@@ -1,0 +1,25 @@
+<div class="page-header">
+  <h1>Enquiry</h1>
+</div>
+<p>
+  <strong>Account Number:</strong> <%= @account.account_no %>
+  <strong>Account Balance:</strong> <%= @account.balance %>
+</p>
+
+<%= form_tag(enquiry_transactions_path, {method: :get, class: "form-inline", role: "form"}) do %>
+  <div class="form-group">
+    <%=label_tag :start_date%>
+    <%=text_field_tag :start_date,'', class: "form-control input-sm datepicker" %>
+  </div><!-- form group [search] -->
+  <div class="form-group">
+    <%=label_tag :end_date%>
+    <%=text_field_tag :end_date,'', class: "form-control input-sm datepicker" %>
+  </div><!-- form group [search] -->
+  <div class="form-group">
+    <br>
+    <%=button_tag class: "btn btn-default filter-col" do%>
+      <span class="glyphicon glyphicon-search"></span> Enquiry 
+    <% end %>
+  </div>
+<% end %>
+<%=render partial: "transactions"%>

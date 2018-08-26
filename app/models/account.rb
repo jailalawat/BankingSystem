@@ -19,6 +19,7 @@
 class Account < ApplicationRecord
   belongs_to :user
   belongs_to :bank
+  has_many :transactions
   validates :account_no, presence: true
   before_create :generate_account_no
 

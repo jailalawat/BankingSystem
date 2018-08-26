@@ -1,0 +1,17 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Transaction Id</th>
+      <th>Amount</th>
+      <th>Transaction Type</th>
+      <th>Date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%=render @transactions%>
+  </tbody>
+</table>
+
+<%= will_paginate @transactions, renderer: BootstrapPagination::Rails %>

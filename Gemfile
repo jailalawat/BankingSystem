@@ -77,3 +77,9 @@ gem 'rolify'
 gem 'rails_admin', '~> 1.3'
 gem "paranoia", "~> 2.2"
 gem 'friendly_id', '~> 5.2.0'
+gem 'simple_form'
+gem "gritter", "1.2.0"
+gem 'will_paginate', '~> 3.1.0'
+gem 'will_paginate-bootstrap'
+gem 'local_time'
+gem 'bootstrap-datepicker-rails'

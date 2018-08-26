@@ -45,9 +45,10 @@ class User < ApplicationRecord
   has_one :beneficiary, dependent: :destroy
   has_many :addresses, dependent: :destroy
   has_one :account
-  has_one :bank, :through => :account
+  has_one :bank, through: :account
+  has_many :transactions, through: :account
 
-  validates :addresses, :length => { :minimum => 1 }
+  validates :addresses, length: { :minimum => 1 }
   validates_associated :profile, :beneficiary, :addresses, :account, :bank
   accepts_nested_attributes_for :profile, :beneficiary, :addresses, :account, :bank
 end
