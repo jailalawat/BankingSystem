@@ -6,12 +6,26 @@
       <span class="icon-bar"></span>
     </button>
     <%=link_to "Banking System", root_path, class: "navbar-brand"%>
-    <div class="navbar-collapse collapse navbar-responsive-collapse">
-      <ul class="nav navbar-nav">
+
+
+
+    <div class="navbar-collapse collapse navbar-responsive-collapse ">
+      <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
-          <li><%=link_to "Sign Out", destroy_user_session_path, method: :delete%></li>
+          <li class="dropdown">
+            <%=link_to "#", class: "dropdown-toggle",'data-toggle': "dropdown", role: "button", 'aria-haspopup': "true", 'aria-expanded': "false" do %>
+              <%="Hi #{current_user.email}"%> <span class="caret"></span>
+            <% end %>
+            <ul class="dropdown-menu">
+              <li><%= link_to 'My Account', account_path(@slug), :class => 'navbar-link' %></li>
+              <li><%= link_to 'View Profile', profile_path(@slug), :class => 'navbar-link' %></li>
+              <li><%= link_to 'View Beneficiary', beneficiary_path(@slug), :class => 'navbar-link' %></li>
+              <li><%= link_to 'View Address', addresses_path, :class => 'navbar-link' %></li>
+              <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
+            </ul>
+          </li>
         <% else %>
-          <li><%=link_to "Login", new_user_session_path%></li>
+          <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
         <% end %>
       </ul>
     </div>

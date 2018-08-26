@@ -1,0 +1,41 @@
+<%- model_class = Address -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:house_number) %></th>
+      <th><%= model_class.human_attribute_name(:floor_no) %></th>
+      <th><%= model_class.human_attribute_name(:building_name) %></th>
+      <th><%= model_class.human_attribute_name(:street_no) %></th>
+      <th><%= model_class.human_attribute_name(:landmark) %></th>
+      <th><%= model_class.human_attribute_name(:area) %></th>
+      <th><%= model_class.human_attribute_name(:state) %></th>
+      <th><%= model_class.human_attribute_name(:city) %></th>
+      <th><%= model_class.human_attribute_name(:pin_code) %></th>
+      <th><%= model_class.human_attribute_name(:permanent) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @addresses.each do |address| %>
+      <tr>
+        <td><%= address.house_number %></td>
+        <td><%= address.floor_no %></td>
+        <td><%= address.building_name %></td>
+        <td><%= address.street_no %></td>
+        <td><%= address.landmark %></td>
+        <td><%= address.area %></td>
+        <td><%= address.state %></td>
+        <td><%= address.city %></td>
+        <td><%= address.pin_code %></td>
+        <td><%= address.permanent %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_address_path(address), :class => 'btn btn-default btn-xs' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

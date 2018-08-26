@@ -75,3 +75,5 @@ gem 'devise-bootstrap-views', '~> 1.0'
 gem 'cancancan'
 gem 'rolify'
 gem 'rails_admin', '~> 1.3'
+gem "paranoia", "~> 2.2"
+gem 'friendly_id', '~> 5.2.0'
