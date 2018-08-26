@@ -48,6 +48,8 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem "letter_opener"
+  gem 'annotate'
 end
 
 group :test do
@@ -60,3 +62,12 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem "twitter-bootstrap-rails", '3.2.2', git: "https://github.com/qx/twitter-bootstrap-rails.git"
+gem 'devise'
+gem "rmagick"
+gem 'paperclip'
+gem 'jquery-rails'
+gem 'devise-i18n'
+gem 'devise-bootstrap-views', '~> 1.0'
+
