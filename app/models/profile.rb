@@ -24,7 +24,10 @@ class Profile < ApplicationRecord
 	extend FriendlyId
 	friendly_id :first_name, use: :slugged
   belongs_to :user
-  validates :first_name, :last_name, :mobile_no, presence: true
+  validates :first_name, :last_name, presence: true
+  validates :mobile_no, :presence => true,
+  										:numericality => true,
+                     	:length => { :minimum => 10, :maximum => 12 }
 
   def full_name
   	"#{first_name} #{middle_name} #{last_name}"

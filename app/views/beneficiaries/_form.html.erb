@@ -19,15 +19,15 @@
     <%= f.label :name, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
       <%= f.text_field :name, :class => 'form-control' %>
+      <%=f.error_span(:name) %>
     </div>
-    <%=f.error_span(:name) %>
   </div>
   <div class="form-group">
     <%= f.label :relation, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
       <%= f.text_field :relation, :class => 'form-control' %>
+      <%=f.error_span(:relation) %>
     </div>
-    <%=f.error_span(:relation) %>
   </div>
 
   <div class="form-group">
