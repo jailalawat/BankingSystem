@@ -12,11 +12,9 @@ class AddressesController < BaseController
   def update
     respond_to do |format|
       if @address.update(address_params)
-        format.html { redirect_to @address, notice: 'Address was successfully updated.' }
-        format.json { render :show, status: :ok, location: @address }
+        format.html { redirect_to addresses_path, notice: 'Address was successfully updated.' }
       else
         format.html { render :edit }
-        format.json { render json: @address.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -30,5 +28,6 @@ class AddressesController < BaseController
     # Never trust parameters from the scary internet, only allow the white list through.
     def address_params
       params.fetch(:address, {})
+      params.require(:address).permit(:house_number, :floor_no, :building_name, :street_no, :landmark, :area, :state, :city, :pin_code, :permanent)
     end
 end

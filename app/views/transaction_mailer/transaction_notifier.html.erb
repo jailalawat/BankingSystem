@@ -1,0 +1,18 @@
+<p>Dear <%=@user.full_name%>,</p>
+<br>
+<p>Thank you for using <%=@bank.name%> Bank Netbanking.</p>
+<br>
+<p>Your <%=@bank.name%> Bank Netbanking <%=@account.account_no%> has been used for <%=@transaction.transaction_type_name%> a transaction of INR <%=@transaction.amount%> on <%=l(@transaction.created_at)%>. The available credit balance on your account is INR <%=@account.balance%>.
+</p>
+<p>
+If you have not authorised this transaction, please call our Customer Care on 0123654789.
+</p>
+<p>
+Safe Banking Tip: Never share your Card Number, CVV, PIN, OTP, Internet Banking User ID, Password or URN with anyone, even if the caller claims to be a bank employee. Sharing these details can lead to unauthorised access to your account.
+</p>
+<p>
+Sincerely,
+</p>
+<p>
+<%=@bank.name%> Bank Limited
+</p>

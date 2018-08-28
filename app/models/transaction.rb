@@ -16,10 +16,12 @@
 
 class Transaction < ApplicationRecord
   belongs_to :account
+  has_one :user, through: :account
   
   validates :amount, presence: true, numericality: {only_float: true}
   validate :withdrawl_amount
   after_commit :update_account_balance
+  after_commit :send_email_to_user
 
   def transaction_type_name
   	self.transaction_type == "DR" ? "Withdraw" : "Deposit"
@@ -31,5 +33,9 @@ class Transaction < ApplicationRecord
 
   def withdrawl_amount
   	errors.add(:base, "Your withdrawl amount is more than account balance") if (self.transaction_type=="DR" && self.amount > self.account.balance)
+  end
+
+  def send_email_to_user
+    TransactionMailer.transaction_notifier(self).deliver_now
   end
 end

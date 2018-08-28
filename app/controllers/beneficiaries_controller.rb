@@ -7,10 +7,8 @@ class BeneficiariesController < BaseController
     respond_to do |format|
       if @beneficiary.update(beneficiary_params)
         format.html { redirect_to @beneficiary, notice: 'Beneficiary was successfully updated.' }
-        format.json { render :show, status: :ok, location: @beneficiary }
       else
         format.html { render :edit }
-        format.json { render json: @beneficiary.errors, status: :unprocessable_entity }
       end
     end
   end
