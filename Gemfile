@@ -57,7 +57,7 @@ end
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
-  gem 'selenium-webdriver'
+  # gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
 end
@@ -83,3 +83,12 @@ gem 'will_paginate', '~> 3.1.0'
 gem 'will_paginate-bootstrap'
 gem 'local_time'
 gem 'bootstrap-datepicker-rails'
+# gem 'rubyzip'
+# gem 'zip-zip' 
+# gem 'axlsx'
+# gem 'axlsx_rails'
+gem 'rubyzip'
+gem 'zip-zip'
+gem 'axlsx', '~> 2.0'
+gem 'acts_as_xlsx'
+gem 'axlsx_rails'

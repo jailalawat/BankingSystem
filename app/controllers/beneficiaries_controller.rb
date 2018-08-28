@@ -1,4 +1,4 @@
-class BeneficiariesController < DashboardController
+class BeneficiariesController < BaseController
   before_action :set_beneficiary, only: [:show, :edit, :update]
 
   # PATCH/PUT /beneficiaries/1

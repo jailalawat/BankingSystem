@@ -7,6 +7,19 @@ class Ability
     #   user ||= User.new # guest user (not logged in)
     if user.has_role? :admin
       can :manage, :all
+    elsif user.has_role? :manager
+      can [:read, :update], Address, user_id: user.id 
+      can :read, Account, user_id: user.id 
+      can [:read, :update], Beneficiary, user_id: user.id 
+      can [:read, :update], Profile, user_id: user.id 
+      can [:read], Transaction
+      can [:read], User
+    elsif user.has_role? :customer
+      can [:read, :update], Address, user_id: user.id 
+      can :read, Account, user_id: user.id 
+      can [:read, :update], Beneficiary, user_id: user.id 
+      can [:read, :update], Profile, user_id: user.id 
+      can [:read, :new, :create, :enquiry], Transaction, user_id: user.id 
     else
       can :read, :all
     end

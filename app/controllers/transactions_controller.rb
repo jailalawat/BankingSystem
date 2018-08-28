@@ -1,4 +1,4 @@
-class TransactionsController < DashboardController
+class TransactionsController < BaseController
   before_action :set_transactions
   before_action :set_transaction, only: :show
 
@@ -38,7 +38,11 @@ class TransactionsController < DashboardController
     end
 
     def set_transactions
-      @transactions = current_user.transactions
+      if current_user.has_role? :manager
+        @transactions = Transaction.all
+      else
+        @transactions = current_user.transactions
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

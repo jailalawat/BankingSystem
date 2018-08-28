@@ -1,6 +1,5 @@
-class ProfilesController < DashboardController
+class ProfilesController < BaseController
   before_action :set_profile, only: [:show, :edit, :update]
-
   # PATCH/PUT /profiles/1
   # PATCH/PUT /profiles/1.json
   def update

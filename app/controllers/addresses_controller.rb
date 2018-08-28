@@ -1,4 +1,4 @@
-class AddressesController < DashboardController
+class AddressesController < BaseController
   before_action :set_address, only: [:edit, :update]
 
   # GET /addresses

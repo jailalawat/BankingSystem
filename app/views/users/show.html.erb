@@ -1,0 +1,8 @@
+<div class="page-header">
+  <h1>Transactio History of <%=@user.full_name.camelcase%></h1>
+</div>
+<p>
+  <strong>Account Number:</strong> <%= @user.account.account_no %>
+  <strong>Account Balance:</strong> <%= @user.account.balance %>
+</p>
+<%=render partial: "/transactions/transactions"%>

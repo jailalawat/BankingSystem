@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   	if current_user.has_role? :admin
   		admin_path
   	else
-  		dashboard_path
+  		root_path
   	end
 	end
   

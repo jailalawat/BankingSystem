@@ -25,4 +25,8 @@ class Profile < ApplicationRecord
 	friendly_id :first_name, use: :slugged
   belongs_to :user
   validates :first_name, :last_name, :mobile_no, presence: true
+
+  def full_name
+  	"#{first_name} #{middle_name} #{last_name}"
+  end
 end

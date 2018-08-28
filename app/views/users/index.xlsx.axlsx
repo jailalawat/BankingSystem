@@ -1,0 +1,17 @@
+wb = xlsx_package.workbook
+
+wb.add_worksheet(name: "Users") do |sheet|
+  
+  # each user is a row on your spreadsheet
+  @users.each do |user|
+  	# this is the head row of your spreadsheet
+	  sheet.add_row %w(User-Full-Name Account-Number Account-Balance)
+	  account = user.account
+	  sheet.add_row [user.full_name, account.account_no, account.balance]
+
+		sheet.add_row %w(Transaction-Id Transaction-Type Transaction-Amount Transaction-Date )
+	  user.transactions.each do |transaction|
+	    sheet.add_row [transaction.id, transaction.amount, transaction.transaction_type, l(transaction.created_at)]
+	  end
+  end
+end

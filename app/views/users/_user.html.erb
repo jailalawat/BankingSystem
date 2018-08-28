@@ -1,0 +1,9 @@
+<tr>
+	<td><%= check_box_tag 'ids[]' , user.id%></td>
+	<td><%= user.full_name %></td>
+	<td><%= user.profile.mobile_no  %></td>
+  <td><%= user.email %></td>
+  <td><%= local_time(user.last_sign_in_at)%></td>
+  <td><%= local_time(user.created_at) %></td>
+  <td><%= link_to 'Transaction History', user_path(user) %></td>
+</tr>

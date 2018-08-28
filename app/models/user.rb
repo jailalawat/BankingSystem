@@ -47,8 +47,26 @@ class User < ApplicationRecord
   has_one :account
   has_one :bank, through: :account
   has_many :transactions, through: :account
+  delegate :full_name, to: :profile
+  delegate :mobile_no, to: :profile
 
   validates :addresses, length: { :minimum => 1 }
   validates_associated :profile, :beneficiary, :addresses, :account, :bank
   accepts_nested_attributes_for :profile, :beneficiary, :addresses, :account, :bank
+
+  # def self.search(ids, start_date, end_date)
+  #   query = ""
+  #   if(ids.present? && (start_date.blank? && end_date.blank?))
+  #     query = "users.id IN(?)"
+  #   elsif(start_date.present? && (ids.blank? && end_date.blank?))
+  #     query = "transactions.created_at #{start_date}"
+  #   elsif(end_date.present? && (start_date.blank? && ids.blank?))
+  #     query = "users.id IN(?)"
+  #   end
+
+  #   if(query.blank?)
+  #     eager_load(:transactions).all
+  #   else
+  #   end
+  # end
 end

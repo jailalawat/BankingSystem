@@ -26,15 +26,10 @@ class Transaction < ApplicationRecord
   end
 
   def update_account_balance
-  	if self.transaction_type == "CR"
-  		account.update(balance: (account.balance + self.amount))
-  	else
-  		account.update(balance: (account.balance - self.amount))
-  	end
+    account.update(balance: [account.balance, self.amount].inject((self.transaction_type=="CR" ? "+" : "-" ).to_sym))
   end
 
   def withdrawl_amount
   	errors.add(:base, "Your withdrawl amount is more than account balance") if (self.transaction_type=="DR" && self.amount > self.account.balance)
   end
-
 end
