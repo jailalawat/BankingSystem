@@ -18,15 +18,15 @@ class UserQueryBuilder
 	end
 
 	def user_ids_conditions
-	  ["users.id IN(?)", @user_ids] unless @user_ids.blank?
+	  ["users.id IN(?)", user_ids] unless user_ids.blank?
 	end
 
 	def start_date_conditions
-	  ["transactions.created_at >= ?", @start_date] unless @start_date.blank?
+	  ["transactions.created_at >= ?", start_date] unless start_date.blank?
 	end
 
 	def end_date_conditions
-	  ["transactions.created_at <= ?", @end_date] unless @end_date.blank?
+	  ["transactions.created_at <= ?", end_date] unless end_date.blank?
 	end
 
 	def conditions
