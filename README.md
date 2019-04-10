@@ -22,3 +22,5 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+http://railscasts.com/episodes/111-advanced-search-form
